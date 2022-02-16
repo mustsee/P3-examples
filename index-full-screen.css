@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: lightcyan;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes loader {
+  100% {
+    opacity: 0;
+    z-index: -10;
+  }
+}
+
+.loader {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Check these comments */
+
+  /* The loader animation removes the background-color by setting the opacity at 0 */
+  animation: loader 0.01s;
+  /* We wait for 3 seconds before we launch the loader animation */
+  animation-delay: 3s;
+  /* This line below is mandatory */
+  /* Mozilla : The animation-fill-mode CSS property sets how a CSS animation applies styles to its target before and after its execution. */
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/animation-fill-mode */
+  /* Try to understand it on your own by changing the values of animation-fill-mode */
+  animation-fill-mode: forwards;
+}
+
+.items {
+  display: flex;
+}
+
+.item {
+  padding: 24px;
+  font-size: larger;
+}
+
+.title,
+.location,
+.action-button,
+.cards {
+  padding: 32px 0;
+}
+
+.cards {
+  display: flex;
+}
+
+.card {
+  border: 2px solid black;
+  width: 80px;
+  height: 80px;
+
+  margin-right: 8px;
+}
